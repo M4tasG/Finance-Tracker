@@ -1,0 +1,16 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+
+{% block form %}
+    <h2>Log in</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <label><h2>Username:</h2></label>
+            {{form.username}}
+            <label><h2>Password:</h2></label>
+            {{form.password}}
+        </fieldset>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

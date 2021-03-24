@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Finance Tracker</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="{% static 'authentication/style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="splash">
+                <h1>Finance</h1>
+                <h2>Tracker</h2>
+            </div>
+            <div class="input-container">
+                {% block form %}{% endblock %}
+            </div>
+        </div>
+    </body>
+</html>

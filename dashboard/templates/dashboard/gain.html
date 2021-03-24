@@ -1,0 +1,20 @@
+{% extends 'dashboard/input-base.html' %}
+{% load static %}
+
+{% block form %}
+    <h1>Log gain:</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <label>Name:</label>
+            {{form.name}}
+            <label>Balance:</label>
+            {{form.balance}}
+            <label>Classification:</label>
+            {{form.transaction_class}}
+            <label>Amount:</label>
+            {{form.amount}}
+        </fieldset>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

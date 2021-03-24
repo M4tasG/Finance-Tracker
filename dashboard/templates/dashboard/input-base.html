@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Static</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="{% static 'dashboard/style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="control">
+                <a href="{% url 'dashboard-main' %}" style="color: white;">
+                <div class="control-header">
+                    <object type="image/svg+xml" data="{% static 'dashboard/svg/money-bag.svg' %}"></object>
+                    <div>
+                        <h1>Finance</h1>
+                        <h2>Tracker</h2>
+                    </div>
+                </div>
+                </a>
+                <div class="control-panel">
+                    <h2>Log</h2>
+                    <div class="control-panel-section">
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/paymentmethod.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-expense' %}">Expense</a></h2>
+                        </div>
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/paymentmethod.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-gain' %}">Gain</a></h2>
+                        </div>
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/cash.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-lend' %}">Lend</a></h2>
+                        </div>
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/cash.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-borrow' %}">Borrow</a></h2>
+                        </div>
+                    </div>
+                    <h2>Create</h2>
+                    <div class="control-panel-section">
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/piggy-bank.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-balance' %}">Balance</a></h2>
+                        </div>
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/paymentmethod.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-class' %}">Classification</a></h2>
+                        </div>
+                    </div>
+                    <div class="control-panel-button">
+                        <object type="image/svg+xml" data="{% static 'dashboard/svg/padlock.svg' %}"></object>
+                        <h2><a href="{% url 'authentication-logout' %}">Logout</a></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="input-container">
+                {% block form %}{% endblock %}
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+        <script>
+        </script>
+    </body>
+</html>

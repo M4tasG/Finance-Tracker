@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Static</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="{% static 'dashboard/style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="control">
+                <a href="{% url 'dashboard-main' %}" style="color: white;">
+                <div class="control-header">
+                    <object type="image/svg+xml" data="{% static 'dashboard/svg/money-bag.svg' %}"></object>
+                    <div>
+                        <h1>Finance</h1>
+                        <h2>Tracker</h2>
+                    </div>
+                </div>
+                </a>
+                <div class="control-panel">
+                    <h2>Log</h2>
+                    <div class="control-panel-section">
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/paymentmethod.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-expense' %}">Expense</a></h2>
+                        </div>
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/paymentmethod.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-gain' %}">Gain</a></h2>
+                        </div>
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/cash.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-lend' %}">Lend</a></h2>
+                        </div>
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/cash.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-borrow' %}">Borrow</a></h2>
+                        </div>
+                    </div>
+                    <h2>Create</h2>
+                    <div class="control-panel-section">
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/piggy-bank.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-balance' %}">Balance</a></h2>
+                        </div>
+                        <div class="control-panel-button">
+                            <object type="image/svg+xml" data="{% static 'dashboard/svg/paymentmethod.svg' %}"></object>
+                            <h2><a href="{% url 'dashboard-create-class' %}">Classification</a></h2>
+                        </div>
+                    </div>
+                    <div class="control-panel-button">
+                        <object type="image/svg+xml" data="{% static 'dashboard/svg/padlock.svg' %}"></object>
+                        <h2><a href="{% url 'authentication-logout' %}">Logout</a></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="charts1">
+                    <h1>Change during the month</h1>
+                    <div class="chart1">
+                        <canvas id='chart1' style="width: 100%; height: 100%;"></canvas>
+                    </div>
+                </div>
+                <div class="stats">
+                    <h1>This month:</h1>
+                    <div class="month-stats">
+                        <div class="month">
+                            {% block stats_month %}{% endblock %}
+                        </div>
+                    </div>
+                    <h1>Balances:</h1>
+                    <div class="balance-stats">
+                        {% block stats_balance %}{% endblock %}
+                    </div>
+                </div>
+                <div class="lend">
+                    <h1>Lends:</h1>
+                    {% block lends %}{% endblock %}
+                </div>
+                <div class="borrow">
+                    <h1>Borrowed:</h1>
+                    {% block borrows %}{% endblock %}
+                </div>
+                <div class="history">
+                    {% block transactions %}{% endblock %}
+                    {% block paginator_nav %}{% endblock %}
+                </div>
+                <div class="charts2">
+                    <h1>Spending</h1>
+                    <div class="chart2">
+                        <canvas id='chart2' style="width: 100%; height: 100%;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+        {% block chart1 %}{% endblock %}
+        {% block chart2 %}{% endblock %}
+    </body>
+</html>

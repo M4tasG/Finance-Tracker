@@ -1,0 +1,297 @@
+html, body{
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    color: black;
+    background-color: #d8d8d8;
+}
+
+/*
+    General styling
+*/
+h1, h2, h3, h4, h5{
+    margin: 0;
+}
+a{
+  text-decoration: none;  
+}
+
+/*
+    Main container
+*/
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/*
+    Control sidebar
+*/
+
+.control{
+    color: white;
+    background: rgb(63,45,199);
+    background: linear-gradient(135deg, rgba(63,45,199,1) 0%, rgba(105,0,164,1) 100%);
+    padding: 1em;
+    flex: 1;
+}
+
+.control-header{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2em;
+    border-bottom: 1px solid rgb(158, 158, 158);
+}
+.control-header > object{
+    width: 25%;
+}
+.control-header > div{
+    margin-left: 0.25em;
+}
+
+.control-panel{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+.control-panel-section{
+    margin-left: 1em;
+}
+.control-panel-button{
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+.control-panel-button > object{
+    opacity: 0.9;
+    width: 10%;
+}
+.control-panel-button > h2{
+    margin: 1em 0.5em;
+}
+.control-panel-button a{
+    opacity: 0.5;
+    color: white;
+}
+.control-panel-button a:hover{
+    opacity: 0.9;
+}
+
+/*
+    Information grid container
+*/
+
+.grid-container {
+    flex: 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding: 1em;
+    gap: 1em;
+    grid-template-areas:
+      "charts1 charts1 charts1 stats"
+      "charts1 charts1 charts1 stats"
+      "history history charts2 lend"
+      "history history charts2 borrow";
+}
+.grid-container > div{
+    border-radius: 0.5em;
+    padding: 1em;
+    background-color: white;
+}
+/*
+    Change chart
+*/
+.charts1{
+    grid-area: charts1;
+}
+.chart1{
+    height: 80%;
+    width: 100%;
+}
+/*
+    Stats
+*/
+.stats{
+    grid-area: stats;
+}
+.month-stats{
+    margin: 0.5em;
+}
+.balance-stats{
+    margin: 0.5em;
+}
+.balance{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1em;
+    grid-template-areas:
+    "balance amount";
+}
+.balance > p{
+    text-align: left;
+    margin: 0.25em;
+}
+.balance p:last-of-type{
+    text-align: center;
+}
+.balance-amount{
+    border-radius: 0.5em;
+    padding: 0.15em;
+    border: 1px solid rgb(63,45,199);
+    color: rgba(63,45,199,1);
+}
+.month{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1em;
+    grid-template-areas:
+    "spent gained";
+}
+.month-amount-spent{
+    font-size: 1.5em;
+    padding: 0.1em;
+    border-radius: 0.5em;
+    background: rgba(216, 38, 38, 0.5);
+    border: 1px solid red;
+}
+.month-amount-gained{
+    font-size: 1.5em;
+    padding: 0.1em;
+    border-radius: 0.5em;
+    background: rgba(38, 216, 62, 0.5);
+    border: 1px solid rgb(1, 204, 45);
+}
+/*
+    Information: Lends and Borrows
+*/
+.lend{
+    grid-area: lend;
+}
+.borrow{
+    grid-area: borrow;
+}
+.lb-line{
+    text-align: left;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 1em 0;
+    gap: 1em;
+    grid-template-areas:
+    "user amt return";
+}
+.lb-line p{
+    margin: 0;
+}
+.lb-amount{
+    border-radius: 0.5em;
+    border: 1px solid rgb(63,45,199);
+    color: rgba(63,45,199,1);
+}
+.lb-line p:last-of-type{
+    text-align: center;
+}
+/*
+    Information: Transaction history
+*/
+.history{
+    grid-area: history;
+    display: flex;
+    flex-direction: column;
+}
+.transaction{
+    padding: 1em 0em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0.5em;
+    grid-template-areas:
+    "name time class amount";
+}
+.transaction:hover{
+    background-color: #f2f2f2;
+}
+.transaction > p{
+    margin: 0.1em;
+}
+.time{
+    text-align: center;
+    opacity: 0.5;
+}
+.class{
+    text-align: left;
+    opacity: 0.5;
+}
+.amount{
+    text-align: right;
+    padding: 0.1em 0.2em;
+    border-radius: 0.5em;
+}
+/*
+    Transaction history: Pagination
+*/
+.pagination{
+    margin: 2em 0;
+}
+.pagination-button{
+    border-radius: 0.5em;
+    border: 1px solid rgb(63,45,199);
+    color: rgba(63,45,199,1);
+    padding: 0.5em 1em;
+}
+/*
+    Spendings chart
+*/
+.charts2{
+    grid-area: charts2;
+}
+.chart2{
+    margin-top: 1em;
+    height: 80%;
+}
+
+/*
+    Input container
+*/
+
+.input-container{
+    padding: 1em;
+    flex: 4;
+    margin: 1em;
+    border-radius: 0.5em;
+    background-color: white;
+}
+.input-container fieldset{
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+.input-container label{
+    font-size: 1.5em;
+    opacity: 0.7;
+}
+.input-container input{
+    padding: 0.5em;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0.5em;
+}
+.input-container select{
+    padding: 0.5em;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0.5em;
+}
+.input-container button{
+    margin-left: 1em;
+    background: none;
+    border-radius: 0.5em;
+    border: 1px solid rgb(63,45,199);
+    color: rgba(63,45,199,1);
+    padding: 0.5em 1em;
+}
