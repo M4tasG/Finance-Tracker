@@ -21,13 +21,17 @@ pip install django
 ```
 
 __To run the application:__
+Run these just in case
 ```
-#run these just in case
 py manage.py makemigrations
 py manage.py migrate
-#create yourself a superuser
+```
+Create yourself a superuser
+```
 py manage.py createsuperuser
-#run the app
+```
+Run the app
+```
 py manage.py runserver
 ```
 the now running application can be access via __localhost:8000__
